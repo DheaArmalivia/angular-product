@@ -1,0 +1,63 @@
+<!-- <div>
+  <h2>Halaman Edit Product</h2>
+  <form>
+    <button value="Submit" (click)="goBack()">Back</button>
+    <div *ngIf="product">
+            <div>id: <span>{{product.id}}</span></div>
+            <div>
+              <label>Product Id</label>
+              <input type="number" id="productId" name="productId" [(ngModel)]="product.productId" placeholder="Product Id"/>
+            </div>
+            <div>
+              <label>Nama</label>
+              <input type="text" id="name" name="name" [(ngModel)]="product.name" placeholder="Nama"/>
+            </div>
+            <div>
+                <label>Price</label>
+                <input type="number" id="price" name="price" [(ngModel)]="product.price" placeholder="Price"/>
+              </div>
+      </div>
+        <button value="Submit" (click)="save()">Save</button>
+  </form>
+</div> -->
+<div class="animated bounceInLeft container">
+    <form [formGroup]="userForm">
+        <p-panel header="Edit Products Page">
+            <h3 style="margin-bottom: 10px;">Edit Product where id is {{product.id}}</h3>
+            <!-- <p-messages [(value)]="msgs"></p-messages> -->
+            <p-toast></p-toast>
+            <button pButton type="button" label="Back" icon="pi pi-arrow-left" class="ui-button-secondary" (click)="goBack()"></button>
+                <div *ngIf="product">
+                    <div class="ui-g">
+                        <div class="ui-g-10">
+                            <span class="ui-g-3">Id</span>
+                            <span class="ui-g-4">{{product.id}}</span>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-10">
+                            <span class="ui-g-3">Product Id</span>
+                            <input class="ui-g-4" type="number" pInputText placeholder="ProductId" pKeyFilter="int" formControlName="productId" [(ngModel)]="product.productId">         
+                            <p-message class="ui-g-3" severity="error" *ngIf="!userForm.controls['productId'].valid&&userForm.controls['productId'].dirty" text="Product Id is Required"></p-message>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-10">
+                            <span class="ui-g-3">Product Name</span>
+                            <input class="ui-g-4" type="text" pInputText placeholder="Product Name" formControlName="name" [(ngModel)]="product.name">         
+                            <p-message class="ui-g-3" severity="error" *ngIf="!userForm.controls['name'].valid&&userForm.controls['name'].dirty" text="Product Name is Required"></p-message>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                        <div class="ui-g-10">
+                            <span class="ui-g-3">Price</span>
+                            <input class="ui-g-4" type="number" pInputText placeholder="Price" pKeyFilter="money" formControlName="price" [(ngModel)]="product.price">
+                            <p-message class="ui-g-3" severity="error" *ngIf="!userForm.controls['price'].valid&&userForm.controls['price'].dirty" text="Price is Required"></p-message>
+                        </div>
+                    </div>
+                </div>
+            <button pButton type="button" label="Save" icon="pi pi-plus" class="ui-button-success" 
+            (click)="save()" [disabled]="!userForm.valid"></button>
+        </p-panel>
+    </form>
+</div>

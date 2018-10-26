@@ -1,0 +1,52 @@
+<div class="animated bounceInLeft container">
+    <form [formGroup]="userForm">
+            <p-panel header="Create Products Page">
+                    <h3 style="margin-bottom: 10px;">Create New Product</h3>
+                    <!-- <p-messages [(value)]="msgs"></p-messages> -->
+                    <p-toast></p-toast>
+                    <button pButton type="button" label="Back" icon="pi pi-arrow-left" class="ui-button-secondary" (click)="goBack()"></button>
+                    <div class="ui-g">
+                        <div class="ui-g-12">
+                            <div class="ui-g-4">
+                                <span>Product Id</span>
+                            </div>
+                            <div class="ui-g-4">
+                                <input  type="text" pInputText placeholder="ProductId" pKeyFilter="int" formControlName="productId" [(ngModel)]="product.productId">
+                            </div>
+                            <div class="ui-g-4">
+                                <p-message severity="error" *ngIf="!userForm.controls['productId'].valid&&userForm.controls['productId'].dirty" text="Product Id is Required"></p-message>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-g">
+                            <div class="ui-g-12">
+                                    <div class="ui-g-4">
+                                        <span>Product Name</span>
+                                    </div>
+                                    <div class="ui-g-4">
+                                        <input  type="text" pInputText placeholder="Product Name" formControlName="name" [(ngModel)]="product.name">
+                                    </div>
+                                    <div class="ui-g-4">
+                                        <p-message severity="error" *ngIf="!userForm.controls['name'].valid&&userForm.controls['name'].dirty" text="Name is Required"></p-message>
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="ui-g">
+                            <div class="ui-g-12">
+                                    <div class="ui-g-4">
+                                        <span>Price</span>
+                                    </div>
+                                    <div class="ui-g-4">
+                                        <input  type="text" pInputText placeholder="Price" pKeyFilter="int" formControlName="price" [(ngModel)]="product.price">
+                                    </div>
+                                    <div class="ui-g-4">
+                                        <p-message severity="error" *ngIf="!userForm.controls['price'].valid&&userForm.controls['price'].dirty" text="Price is Required"></p-message>
+                                    </div>
+                                </div>
+                    </div>
+                    <button pButton type="button" icon="pi pi-plus" label="Add"
+                     class="ui-button-success" (click)="add()" [disabled]="!userForm.valid"></button>
+                </p-panel>
+    </form>
+    
+</div>

@@ -1,0 +1,42 @@
+<div class="container" style="text-align: center;">
+  <p-card title="Login">
+    <div>
+        <form [formGroup]="userForm">
+                <p-toast></p-toast>
+            <div class="row">
+                <div class="ui-inputgroup ui-g-6">
+                    <div>
+                        <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+                        <input type="email" formControlName="email" [(ngModel)]="customer.email" pInputText placeholder="Email"> 
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p-message severity="error"
+                *ngIf="!userForm.controls['email'].valid&&userForm.controls['email'].dirty"
+                text="Email is Required"></p-message> 
+            </div>
+            <div class="ui-g">
+                <div class="ui-inputgroup ui-g-6">
+                    <div>
+                        <span class="ui-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                        <input type="password" formControlName="password" [(ngModel)]="customer.password" pInputText placeholder="Password">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p-message severity="error" 
+                [text]="userForm.controls['password'].errors['required'] ? 'Password is required' : userForm.controls['password'].errors['minlength'] ? 'Password minimal 5 karakter' : ''" 
+                *ngIf="!userForm.controls['password'].valid&&userForm.controls['password'].dirty"></p-message>
+            </div>
+            <div>
+                <button pButton type="button" icon="pi pi-chevron-right"
+                label="Login" class="ui-button-success"
+                [disabled]="!userForm.valid" (click)="login(customer)"></button>
+                <!-- <button pButton type="button" icon="pi pi-chevron-right"
+                label="Register" class="ui-button-secondary"></button> -->
+            </div>
+        </form>
+    </div>
+  </p-card>
+</div>

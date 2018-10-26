@@ -1,0 +1,40 @@
+<!-- <div style="text-align:center">
+  <h1 style="margin-top: 10px; margin-bottom: 20px;">
+    Welcome to {{ title }}!
+  </h1>
+<img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0
+iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoI
+GZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQz
+LjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjF
+WMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRi
+IgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyN
+SA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div> -->
+<div class="animated bounceInLeft container" *ngIf="isLoggedIn | async as loggedIn">
+  <nav class="animated shake navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+     aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/product">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li>
+          <button type="button" class="btn btn-default navbar-btn" (click)="logout()">Logout</button>
+        </li>
+        <!-- <li class="nav-item active">
+          <a class="nav-link">Logout <span class="sr-only">(current)</span></a>
+        </li> -->
+      </ul>
+    </div>
+  </nav>
+</div>
+<!--content-->
+<router-outlet></router-outlet>
+
+
